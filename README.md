@@ -1,2 +1,21 @@
-# Rialo-Game-Quiz
- Rialo Knowledge Game Quiz This is an interactive and visually appealing quiz game designed to test your knowledge of Rialo blockchain technology. The game features a personalized experience, starting with a player name input. You'll face 20 challenging questions and receive instant feedback along with detailed explanations.
+# Rialo Knowledge Game Quiz
+
+A beautiful and interactive quiz game to test your knowledge about Rialo blockchain technology.
+
+## 🎮 Features
+
+- **20 Challenging Questions** about Rialo blockchain
+- **Player Name Input** for personalized experience
+- **Real-time Progress Tracking** with animated progress bar
+- **Instant Feedback** with detailed explanations
+- **Achievement System** with badges based on performance
+- **Responsive Design** that works on all devices
+- **Beautiful UI** with animations and gradients
+
+## 🚀 How to Run
+
+1. Download all files and maintain the folder structure
+2. Open `index.html` in your web browser
+3. Enter your name and start the quiz!
+
+## 📁 File Structure

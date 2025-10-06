@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rialo Knowledge Game</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Background with Image -->
+    <div class="background">
+        <div class="background-overlay"></div>
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Start Screen -->
+        <div id="startScreen" class="screen active">
+            <div class="header">
+                <div class="logo-container">
+                    <img src="assets/images/logo.png" alt="Rialo Logo" class="logo-image" onerror="this.style.display='none'">
+                    <div class="logo-text">
+                        RIALO
+                    </div>
+                </div>
+                <p class="subtitle">Blockchain Knowledge Challenge</p>
+            </div>
+            
+            <div class="player-input-card">
+                <div class="input-group">
+                    <label for="playerName">Enter Your Name</label>
+                    <input type="text" id="playerName" placeholder="Type your name here..." maxlength="20">
+                </div>
+                <button id="startBtn" class="btn primary">
+                    <span class="btn-icon">🚀</span>
+                    Start Quiz
+                </button>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>20 Questions</h3>
+                    <p>Challenge yourself with Rialo blockchain topics</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Instant Feedback</h3>
+                    <p>Learn with detailed explanations</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Achievements</h3>
+                    <p>Earn badges based on your performance</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quizScreen" class="screen">
+            <div class="quiz-header">
+                <div class="header-left">
+                    <div class="player-info-card">
+                        <div class="player-avatar">👤</div>
+                        <div class="player-details">
+                            <div class="player-name" id="playerInfo"></div>
+                            <div class="player-level">Rialo Explorer</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="header-center">
+                    <div class="progress-card">
+                        <div class="progress-header">
+                            <span class="progress-label">Progress</span>
+                            <span class="progress-value" id="progressText">1/20</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="header-right">
+                    <div class="score-card">
+                        <div class="score-icon">⭐</div>
+                        <div class="score-details">
+                            <div class="score-label">Score</div>
+                            <div class="score-value" id="currentScore">0</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-header">
+                    <span class="question-number">Question <span id="questionNumber">1</span></span>
+                    <span class="question-timer">⏱️ No time limit</span>
+                </div>
+                <h2 id="questionText" class="question-text"></h2>
+                
+                <div id="optionsContainer" class="options-grid"></div>
+            </div>
+
+            <div class="navigation">
+                <button id="prevBtn" class="btn secondary" disabled>
+                    <span class="btn-icon">⬅</span>
+                    Previous
+                </button>
+                <button id="nextBtn" class="btn primary">
+                    Next Question
+                    <span class="btn-icon">➡</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="resultScreen" class="screen">
+            <div class="result-header">
+                <div class="result-badge">🎉</div>
+                <h1 class="logo">Quiz Complete!</h1>
+                <p class="subtitle" id="resultSubtitle">Your Rialo Knowledge Results</p>
+            </div>
+
+            <div class="score-display">
+                <div class="final-score-container">
+                    <div class="final-score" id="finalScore">0%</div>
+                    <div class="score-label">Final Score</div>
+                </div>
+                
+                <div class="achievement-card" id="achievementCard">
+                    <div class="achievement-icon" id="achievementIcon">🏆</div>
+                    <div class="achievement-content">
+                        <div class="achievement-title" id="achievementTitle">Rialo Master</div>
+                        <div class="achievement-desc" id="achievementDesc">Outstanding performance!</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">✅</div>
+                    <div class="stat-value" id="correctCount">0</div>
+                    <div class="stat-label">Correct Answers</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-value" id="totalCount">20</div>
+                    <div class="stat-label">Total Questions</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🎯</div>
+                    <div class="stat-value" id="percentage">0%</div>
+                    <div class="stat-label">Accuracy</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⏱️</div>
+                    <div class="stat-value" id="timeTaken">--</div>
+                    <div class="stat-label">Time Taken</div>
+                </div>
+            </div>
+
+            <div class="performance-message" id="performanceMessage">
+                Great job on completing the Rialo knowledge challenge!
+            </div>
+
+            <div class="result-actions">
+                <button id="restartBtn" class="btn primary large">
+                    <span class="btn-icon">🔄</span>
+                    Play Again
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/questions.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
